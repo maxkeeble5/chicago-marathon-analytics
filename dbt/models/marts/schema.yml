@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: mart_runner_results
+    columns:
+      - name: year
+        data_tests:
+          - not_null
+
+      - name: finish_seconds
+        data_tests:
+          - not_null
+
+  - name: mart_marathon_yearly
+    columns:
+      - name: year
+        data_tests:
+          - not_null
+          - unique
+
+      - name: runner_count
+        data_tests:
+          - not_null

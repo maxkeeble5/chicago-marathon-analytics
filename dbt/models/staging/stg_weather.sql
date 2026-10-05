@@ -2,7 +2,7 @@ select
     cast(year as int) as year,
     cast(month as int) as month,
     cast(day as int) as day,
-    cast(date as date) as date,
+    to_date(date, 'MMM d, yyyy') as date,
 
     cast(`6am_temp` as double) as temp_6am,
     cast(`6am_dew` as double) as dew_6am,
