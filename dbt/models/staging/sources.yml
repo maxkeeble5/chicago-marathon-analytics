@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: marathon
+    catalog: marathon
+    schema: analytics
+
+    tables:
+      - name: bronze_results
+      - name: bronze_weather
+      - name: bronze_qualifying_times

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_results
+    columns:
+      - name: year
+        data_tests:
+          - not_null
+
+      - name: gender
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['M', 'F']
+
+      - name: age
+        data_tests:
+          - not_null
+
+      - name: finish
+        data_tests:
+          - not_null
