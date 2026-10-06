@@ -8,4 +8,3 @@ sources:
     tables:
       - name: bronze_results
       - name: bronze_weather
-      - name: bronze_qualifying_times

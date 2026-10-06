@@ -12,12 +12,23 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['M', 'F']
+                values:
+                  - Man
+                  - Woman
+                  - Non-binary
+                  - Not Specified
 
-      - name: age
+      - name: finish_time_seconds
         data_tests:
           - not_null
 
-      - name: finish
+  - name: stg_weather
+    columns:
+      - name: year
+        data_tests:
+          - not_null
+          - unique
+
+      - name: race_date
         data_tests:
           - not_null

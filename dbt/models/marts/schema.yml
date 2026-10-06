@@ -7,17 +7,10 @@ models:
         data_tests:
           - not_null
 
-      - name: finish_seconds
+      - name: finish_time_seconds
         data_tests:
           - not_null
 
-  - name: mart_marathon_yearly
-    columns:
-      - name: year
-        data_tests:
-          - not_null
-          - unique
-
-      - name: runner_count
+      - name: race_date
         data_tests:
           - not_null

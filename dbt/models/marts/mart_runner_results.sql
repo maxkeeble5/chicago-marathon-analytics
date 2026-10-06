@@ -5,13 +5,6 @@ with results as (
 
 ),
 
-qualifying_times as (
-
-    select *
-    from {{ ref('int_qualifying_times_by_age') }}
-
-),
-
 weather as (
 
     select *
@@ -22,25 +15,24 @@ weather as (
 final as (
 
     select
-        r.race,
         r.year,
-        r.name,
+        r.place_overall,
+        r.place_gender,
+        r.bib,
+        r.athlete_name,
+        r.athlete_id,
         r.gender,
-        r.age,
-        r.country,
-        r.overall,
+        r.age_group,
+        r.country_ioc,
+        r.is_usa,
+        r.is_brazil,
         r.finish_time,
-        r.finish as finish_seconds,
+        r.finish_time_seconds,
+        r.half_split_seconds,
+        r.decade,
+        r.is_post_major,
 
-        q.qualifying_time_seconds,
-
-        case
-            when q.qualifying_time_seconds is null then null
-            when r.finish <= q.qualifying_time_seconds then true
-            else false
-        end as met_qualifying_standard,
-
-        w.date as race_date,
+        w.race_date,
         w.temp_6am,
         w.dew_6am,
         w.wind_6am,
@@ -52,11 +44,6 @@ final as (
         w.wind_12pm
 
     from results r
-
-    left join qualifying_times q
-        on r.gender = q.gender
-        and r.age = q.age
-        and r.year between q.effective_start_year and q.effective_end_year
 
     left join weather w
         on r.year = w.year
